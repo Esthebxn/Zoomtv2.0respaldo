@@ -1,0 +1,806 @@
+/* ============================================
+   🎨 ZOOM TV APP - CSS PROFESIONAL
+   iPhone Plateado con efectos mejorados
+   ============================================ */
+
+/* ========== RESET & BASE ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+/* ========== CONTENEDOR PRINCIPAL ========== */
+.zoom-app-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%),
+    linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #2a2a2a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Efectos de partículas animadas mejoradas */
+.zoom-app-container::before {
+  content: '';
+  position: absolute;
+  width: 300%;
+  height: 300%;
+  background: 
+    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.1) 2px, transparent 2px),
+    radial-gradient(circle at 80% 70%, rgba(200, 200, 255, 0.08) 1px, transparent 1px),
+    radial-gradient(circle at 40% 90%, rgba(255, 200, 255, 0.06) 3px, transparent 3px);
+  background-size: 100px 100px, 150px 150px, 200px 200px;
+  animation: moveBackground3D 25s linear infinite;
+  z-index: 0;
+}
+
+.zoom-app-container::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(ellipse at 30% 30%, rgba(100, 200, 255, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 70%, rgba(255, 100, 255, 0.1) 0%, transparent 50%);
+  animation: pulseGlow 6s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes moveBackground3D {
+  0% { 
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% { 
+    transform: translate(-50px, 25px) rotate(90deg);
+  }
+  50% { 
+    transform: translate(25px, -50px) rotate(180deg);
+  }
+  75% { 
+    transform: translate(50px, 25px) rotate(270deg);
+  }
+  100% { 
+    transform: translate(0, 0) rotate(360deg);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { 
+    opacity: 0.3;
+    filter: blur(20px);
+  }
+  50% { 
+    opacity: 0.6;
+    filter: blur(30px);
+  }
+}
+
+/* ========== MOCKUP iPHONE PLATEADO ========== */
+.iphone-mockup {
+  width: 390px;
+  height: 844px;
+  background: linear-gradient(135deg, #e8e8e8 0%, #f8f8f8 30%, #e0e0e0 70%, #d0d0d0 100%);
+  border-radius: 55px;
+  box-shadow: 
+    /* Sombra exterior principal */
+    0 50px 100px rgba(0, 0, 0, 0.6),
+    /* Sombra interior para profundidad */
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+    /* Bordes metálicos */
+    0 0 0 2px #c0c0c0,
+    0 0 0 12px #f0f0f0,
+    0 0 0 14px #b0b0b0,
+    /* Reflejos metálicos */
+    inset 0 0 50px rgba(255, 255, 255, 0.3),
+    /* Sombra de elevación */
+    0 20px 40px rgba(0, 0, 0, 0.4);
+  position: relative;
+  overflow: hidden;
+  animation: floatPhone3D 8s ease-in-out infinite;
+  z-index: 2;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+@keyframes floatPhone3D {
+  0% { 
+    transform: 
+      translateY(0px) 
+      rotateX(2deg) 
+      rotateY(-2deg)
+      scale(1);
+  }
+  25% { 
+    transform: 
+      translateY(-20px) 
+      rotateX(-1deg) 
+      rotateY(3deg)
+      scale(1.01);
+  }
+  50% { 
+    transform: 
+      translateY(-30px) 
+      rotateX(3deg) 
+      rotateY(-1deg)
+      scale(1.02);
+  }
+  75% { 
+    transform: 
+      translateY(-15px) 
+      rotateX(-2deg) 
+      rotateY(2deg)
+      scale(1.01);
+  }
+  100% { 
+    transform: 
+      translateY(0px) 
+      rotateX(2deg) 
+      rotateY(-2deg)
+      scale(1);
+  }
+}
+
+/* Efecto de brillo metálico dinámico */
+.iphone-mockup::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transform: skewX(-25deg);
+  animation: metalShine 8s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes metalShine {
+  0%, 100% { left: -100%; }
+  50% { left: 150%; }
+}
+
+/* Dynamic Island / Notch - Plateado */
+.iphone-notch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 125px;
+  height: 37px;
+  background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+  border-radius: 0 0 20px 20px;
+  z-index: 11;
+  box-shadow: 
+    0 2px 15px rgba(0, 0, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+/* Home Indicator (barra inferior) - Plateado */
+.iphone-home-indicator {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 134px;
+  height: 5px;
+  background: linear-gradient(90deg, #888 0%, #aaa 50%, #888 100%);
+  border-radius: 100px;
+  z-index: 11;
+  box-shadow: 
+    0 1px 3px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* ========== PANTALLA DEL iPHONE - MEJOR AJUSTADA ========== */
+.iphone-screen {
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
+  background: linear-gradient(180deg, #000000 0%, #0a0a0a 30%, #111111 100%);
+  border-radius: 44px;
+  margin: 8px;
+  padding: 60px 0 30px 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  box-shadow: 
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    inset 0 0 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Scrollbar personalizado estilo iOS mejorado */
+.iphone-screen::-webkit-scrollbar {
+  width: 4px;
+}
+
+.iphone-screen::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 10px 0;
+}
+
+.iphone-screen::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.iphone-screen::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #764ba2 0%, #667eea 100%);
+}
+
+/* ========== APP CONTAINER - MEJOR ESPACIADO ========== */
+.app-container {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ========== HEADER MEJORADO ========== */
+.app-header {
+  padding: 30px 0 25px 0;
+  text-align: center;
+  animation: slideDownBounce 1s ease-out;
+}
+
+@keyframes slideDownBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.8);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(10px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+}
+
+.logo-text {
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: 4px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 
+    0 4px 20px rgba(102, 126, 234, 0.4),
+    0 0 30px rgba(118, 75, 162, 0.3);
+  animation: pulseGlow 3s ease-in-out infinite;
+  position: relative;
+}
+
+.logo-text::after {
+  content: 'TV';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  z-index: -1;
+  animation: textShift 4s ease-in-out infinite;
+}
+
+@keyframes textShift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(2px, -2px) scale(1.02); }
+}
+
+.logo-subtext {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+/* ========== CONTENIDO PRINCIPAL MEJORADO ========== */
+.coming-soon-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 0;
+  position: relative;
+}
+
+.coming-soon-content {
+  text-align: center;
+  animation: fadeInScale 1.2s ease-out 0.5s both;
+  position: relative;
+}
+
+@keyframes fadeInScale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Efecto de partículas alrededor del contenido */
+.coming-soon-content::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+  animation: rotateParticles 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes rotateParticles {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ========== LOADING (Estilo Apple Mejorado) ========== */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+}
+
+.apple-spinner {
+  width: 60px;
+  height: 60px;
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #667eea;
+  border-right-color: #764ba2;
+  border-bottom-color: #f093fb;
+  border-radius: 50%;
+  animation: spinBounce 1.5s linear infinite;
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.3);
+}
+
+@keyframes spinBounce {
+  0%, 100% { 
+    transform: rotate(0deg) scale(1);
+  }
+  50% { 
+    transform: rotate(180deg) scale(1.1);
+  }
+  100% { 
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+.loading-text {
+  font-size: 17px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 1px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ========== COMING SOON MEJORADO ========== */
+.coming-soon-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  animation: slideUpBounce 1s ease-out 0.7s both;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes slideUpBounce {
+  0% {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+  }
+  70% {
+    opacity: 1;
+    transform: translateY(-5px) scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.coming-soon-text {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.7;
+  margin-bottom: 50px;
+  max-width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: slideUpFade 1s ease-out 0.9s both;
+}
+
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========== COUNTDOWN MEJORADO ========== */
+.countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 50px;
+  animation: slideUpFade 1s ease-out 1.1s both;
+}
+
+.countdown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 16px 10px;
+  min-width: 70px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.countdown-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #f093fb);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.countdown-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 
+    0 15px 30px rgba(102, 126, 234, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.countdown-item:hover::before {
+  transform: scaleX(1);
+}
+
+.countdown-number {
+  font-size: 32px;
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  animation: countPop 0.4s ease;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes countPop {
+  0% { transform: scale(1.3); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.countdown-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 6px;
+}
+
+.countdown-separator {
+  font-size: 28px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.5);
+  padding: 0 6px;
+  animation: pulseSeparator 2s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+@keyframes pulseSeparator {
+  0%, 100% { 
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 0.3;
+    transform: scale(1.1);
+  }
+}
+
+/* ========== BOTÓN iOS MEJORADO ========== */
+.ios-notify-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+  padding: 18px 45px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 
+    0 15px 35px rgba(102, 126, 234, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  letter-spacing: 1px;
+  animation: slideUpFade 1s ease-out 1.3s both;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+.ios-notify-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+  transition: left 0.6s ease;
+}
+
+.ios-notify-btn:hover::before {
+  left: 100%;
+}
+
+.ios-notify-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 
+    0 20px 45px rgba(102, 126, 234, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.3);
+}
+
+.ios-notify-btn:active {
+  transform: translateY(-2px) scale(0.98);
+  box-shadow: 
+    0 10px 25px rgba(102, 126, 234, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* ========== FOOTER MEJORADO ========== */
+.app-footer {
+  padding: 40px 0 20px 0;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin-top: auto;
+  animation: fadeIn 1s ease-out 1.5s both;
+  position: relative;
+}
+
+.app-footer::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #667eea, transparent);
+}
+
+.app-footer p {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.social-icon {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 50%;
+}
+
+.social-icon:hover::before {
+  opacity: 1;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px) rotate(10deg) scale(1.1);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.social-icon .icon {
+  font-size: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  position: relative;
+  z-index: 1;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover .icon {
+  color: #ffffff;
+  transform: scale(1.2);
+}
+
+/* ========== RESPONSIVE MEJORADO ========== */
+@media (max-width: 768px) {
+  .iphone-mockup {
+    width: 350px;
+    height: 758px;
+    border-radius: 48px;
+  }
+
+  .iphone-screen {
+    border-radius: 40px;
+    margin: 7px;
+  }
+
+  .logo-text {
+    font-size: 32px;
+  }
+
+  .coming-soon-title {
+    font-size: 28px;
+  }
+
+  .countdown-number {
+    font-size: 28px;
+  }
+
+  .countdown-item {
+    min-width: 65px;
+    padding: 14px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .iphone-mockup {
+    width: 320px;
+    height: 693px;
+    border-radius: 42px;
+  }
+
+  .iphone-screen {
+    border-radius: 36px;
+    margin: 6px;
+    padding: 55px 0 25px 0;
+  }
+
+  .app-container {
+    padding: 0 20px;
+  }
+
+  .logo-text {
+    font-size: 28px;
+  }
+
+  .coming-soon-title {
+    font-size: 24px;
+  }
+
+  .countdown {
+    gap: 8px;
+  }
+
+  .countdown-item {
+    min-width: 60px;
+    padding: 12px 6px;
+  }
+
+  .countdown-number {
+    font-size: 24px;
+  }
+
+  .countdown-label {
+    font-size: 10px;
+  }
+
+  .ios-notify-btn {
+    font-size: 15px;
+    padding: 16px 35px;
+  }
+}
+
+/* ========== ACCESIBILIDAD MEJORADA ========== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Focus visible para accesibilidad mejorado */
+.ios-notify-btn:focus-visible,
+.social-icon:focus-visible {
+  outline: 3px solid #667eea;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px rgba(102, 126, 234, 0.2);
+}
+
+/* Soporte para modo oscuro del sistema */
+@media (prefers-color-scheme: dark) {
+  .zoom-app-container {
+    background: linear-gradient(135deg, #000000 0%, #0a0a0a 50%, #1a1a1a 100%);
+  }
+} 
