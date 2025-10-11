@@ -1,4 +1,4 @@
-﻿# Node modules
+﻿# Node
 node_modules/
 **/node_modules/
 
@@ -7,15 +7,16 @@ dist/
 build/
 .vite/
 
-# Env files
+# Env
 .env
 .env.*
 
 # Logs
-logs/
 *.log
+logs/
+npm-debug.log*
 
-# System / editor
+# OS / Editor
 .vscode/
 .DS_Store
 Thumbs.db
