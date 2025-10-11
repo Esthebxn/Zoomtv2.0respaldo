@@ -1,13 +1,13 @@
-﻿# Node
+﻿# Node modules
 node_modules/
 **/node_modules/
+
+# Builds
 dist/
 build/
 .vite/
-.next/
-.out/
 
-# Env
+# Env files
 .env
 .env.*
 
@@ -15,6 +15,7 @@ build/
 logs/
 *.log
 
-# Editor / SO
+# System / editor
 .vscode/
 .DS_Store
+Thumbs.db
