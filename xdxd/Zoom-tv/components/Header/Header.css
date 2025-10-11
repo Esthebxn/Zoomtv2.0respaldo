@@ -1,0 +1,211 @@
+/* Variables CSS */
+:root {
+  --header-bg: #1a1a2e;
+  --primary-color: #000000;
+  --neon-color-1: #da1212;
+  --neon-color-2: #0f1111;
+  --neon-color-3: #202020;
+  --text-color: #fff7f7;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --logo-size: 120px;
+  --logo-left: 55px;
+  --title-size: 2rem;
+  --neon-glow-size: 15px;
+}
+
+/* Ajustes principales */
+.header {
+  background-color: var(--header-bg);
+  color: var(--text-color);
+  padding: 1rem;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  animation: slideDown 0.5s ease-out;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Montserrat', sans-serif;
+  border-bottom: 3px solid var(--neon-color-1);
+}
+
+/* Header top */
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  padding: 0.5rem 0;
+  min-height: 70px;
+}
+
+/* Logo - Desktop */
+.logo {
+  position: absolute;
+  top: -10px;
+  left: var(--logo-left);
+  height: var(--logo-size);
+  width: auto;
+  object-fit: contain;
+  transition: var(--transition);
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+  z-index: 2;
+}
+
+/* Título centrado */
+.header-top h1 {
+  font-size: var(--title-size);
+  color: var(--primary-color);
+  font-weight: 700;
+  margin: 0;
+  text-align: center;
+  width: auto;
+  z-index: 1;
+  animation: neon-flicker 2s infinite alternate;
+  text-shadow: 
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 15px var(--neon-color-1),
+    0 0 20px var(--neon-color-1),
+    0 0 35px var(--neon-color-1),
+    0 0 40px var(--neon-color-1);
+}
+
+/* Animación de neón */
+@keyframes neon-flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+    text-shadow: 
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 15px var(--neon-color-1),
+      0 0 20px var(--neon-color-1),
+      0 0 35px var(--neon-color-1),
+      0 0 40px var(--neon-color-1);
+  }
+  20%, 24% {
+    text-shadow: none;
+  }
+}
+
+/* Aparición suave */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hover logo */
+.logo:hover {
+  transform: scale(1.12);
+  filter: drop-shadow(2px 2px 6px rgba(255, 0, 0, 0.6));
+}
+
+/* Navbar escritorio */
+.desktop-nav {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+/* Botón hamburguesa */
+.mobile-menu {
+  display: none;
+}
+
+/* ===== MEDIA QUERIES ===== */
+
+/* Tablets */
+@media (max-width: 768px) {
+  :root {
+    --logo-size: 85px;
+    --logo-left: 15px;
+    --title-size: 1.4rem;
+    --neon-glow-size: 10px;
+  }
+  
+  .header-top {
+    min-height: 60px;
+    padding: 0.5rem 1rem;
+  }
+  
+  .logo {
+    position: static;
+    transform: none;
+    margin-right: auto;
+  }
+  
+  .header-top h1 {
+    font-size: var(--title-size);
+    position: static;
+    transform: none;
+    margin: 0 auto;
+    flex: 1;
+    text-align: center;
+    max-width: calc(100% - 140px);
+  }
+  
+  .desktop-nav {
+    display: none !important;
+  }
+  
+  .mobile-menu {
+    display: block !important;
+    position: static;
+    margin-left: auto;
+    z-index: 1001;
+  }
+  
+  .logo:hover {
+    transform: scale(1.05);
+  }
+}
+
+/* Móviles grandes */
+@media (max-width: 576px) {
+  :root {
+    --logo-size: 70px;
+    --title-size: 1.1rem;
+  }
+  
+  .header-top {
+    min-height: 50px;
+    padding: 0.5rem 0.75rem;
+  }
+  
+  .header-top h1 {
+    font-size: var(--title-size);
+    max-width: calc(100% - 120px);
+    line-height: 1.2;
+  }
+}
+
+/* Móviles pequeños */
+@media (max-width: 400px) {
+  :root {
+    --logo-size: 60px;
+    --title-size: 0.9rem;
+  }
+  
+  .header-top {
+    min-height: 45px;
+    padding: 0.5rem;
+  }
+  
+  .header-top h1 {
+    font-size: var(--title-size);
+    max-width: calc(100% - 100px);
+  }
+  
+  .header {
+    padding: 0.75rem 0.5rem;
+  }
+} 
