@@ -23,13 +23,19 @@ app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 // Servir archivos estáticos desde la carpeta uploads
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-// Configuración de la base de datos
+// Configuración de la base de datos - Google Cloud MySQL
 const dbConfig = {
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'zoomtv_db',
-  port: 3306
+  host: '34.63.133.132', // IP pública de tu instancia MySQL en Google Cloud
+  user: 'Pato',
+  password: 'Zamora_2004',
+  database: 'zoomtv_db', // Usando la base de datos zoomtv_db que ya existe
+  port: 3306,
+  ssl: {
+    rejectUnauthorized: false // SSL requerido por Google Cloud
+  },
+  connectTimeout: 30000, // Timeout de conexión de 30 segundos
+  multipleStatements: true, // Permitir múltiples statements
+  charset: 'utf8mb4' // Charset por defecto
 };
 
 // Crear conexión a la base de datos
