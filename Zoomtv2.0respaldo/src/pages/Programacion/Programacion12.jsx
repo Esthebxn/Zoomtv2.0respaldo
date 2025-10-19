@@ -73,14 +73,6 @@ export default function Programacion12() {
     { id: "domingo", name: "Domingo" }
   ];
 
-  // Simular carga de datos
-  useEffect(() => {
-    setLoading(true);
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-    return () => clearTimeout(timer);
-  }, [selectedDay]);
 
   const handleDayChange = (day) => {
     setSelectedDay(day);
@@ -157,7 +149,8 @@ export default function Programacion12() {
     );
   }
 
-  if (!programacionData || Object.keys(programacionData).length === 0) {
+  // Solo mostrar "No hay programación disponible" si no está cargando y no hay datos
+  if (!loading && (!programacionData || Object.keys(programacionData).length === 0)) {
     return (
       <div className="programacion-container">
         <header className="programacion-header">

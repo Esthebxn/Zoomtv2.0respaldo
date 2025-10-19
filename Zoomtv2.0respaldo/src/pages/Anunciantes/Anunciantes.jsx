@@ -90,7 +90,8 @@ export default function Anunciantes() {
     );
   }
 
-  if (!anunciantesData || anunciantesData.length === 0) {
+  // Solo mostrar "No hay anunciantes disponibles" si no está cargando y no hay datos
+  if (!loading && (!anunciantesData || anunciantesData.length === 0)) {
     return (
       <div className="anunciantes-container">
         <header className="anunciantes-header">
