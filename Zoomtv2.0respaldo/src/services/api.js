@@ -1,5 +1,5 @@
 // Servicio API para conectar con el backend
-const API_BASE_URL = 'http://localhost:3000/api';
+const API_BASE_URL = 'https://zoomtv2-0respaldo.onrender.com/api';
 
 class ApiService {
   // Método genérico para hacer peticiones GET
