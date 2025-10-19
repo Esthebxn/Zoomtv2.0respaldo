@@ -7,12 +7,14 @@ export default defineConfig({
   server: {
     port: parseInt(process.env.PORT || '3002'),
     host: '0.0.0.0', // Importante para Render
-    strictPort: true
+    strictPort: true,
+    allowedHosts: 'all'
   },
   preview: {
     port: parseInt(process.env.PORT || '3002'),
     host: '0.0.0.0', // Importante para Render
-    strictPort: true
+    strictPort: true,
+    allowedHosts: 'all'
   },
   resolve: {
     alias: {
