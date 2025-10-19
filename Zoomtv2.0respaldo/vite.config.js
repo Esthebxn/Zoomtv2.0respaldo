@@ -8,13 +8,13 @@ export default defineConfig({
     port: parseInt(process.env.PORT || '3002'),
     host: '0.0.0.0', // Importante para Render
     strictPort: true,
-    allowedHosts: 'all'
+    allowedHosts: true
   },
   preview: {
     port: parseInt(process.env.PORT || '3002'),
     host: '0.0.0.0', // Importante para Render
     strictPort: true,
-    allowedHosts: 'all'
+    allowedHosts: true
   },
   resolve: {
     alias: {
