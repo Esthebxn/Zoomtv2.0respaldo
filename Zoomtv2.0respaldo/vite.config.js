@@ -5,12 +5,12 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
-    port: parseInt(process.env.PORT) || 3002,
+    port: parseInt(process.env.PORT || '3002'),
     host: '0.0.0.0', // Importante para Render
     strictPort: true
   },
   preview: {
-    port: parseInt(process.env.PORT) || 3002,
+    port: parseInt(process.env.PORT || '3002'),
     host: '0.0.0.0', // Importante para Render
     strictPort: true
   },
