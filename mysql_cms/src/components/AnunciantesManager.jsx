@@ -138,10 +138,15 @@ const AnunciantesManager = () => {
     setShowForm(false);
   };
 
-  const filteredAnunciantes = anunciantes.filter(anunciante =>
-    anunciante.nombre.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    anunciante.categoria.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const filteredAnunciantes = anunciantes.filter(anunciante => {
+    const nombre = anunciante.nombre || '';
+    const categoria = anunciante.categoria || '';
+    const searchLower = searchTerm.toLowerCase();
+    
+    return nombre.toLowerCase().includes(searchLower) ||
+           categoria.toLowerCase().includes(searchLower) ||
+           (anunciante.nombre_empresa || '').toLowerCase().includes(searchLower);
+  });
 
   if (loading) {
     return (
