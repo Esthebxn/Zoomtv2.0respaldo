@@ -131,7 +131,7 @@ const Nosotros = () => {
             alt="Equipo completo de Zoom TV Canal 10"
           />
           <p>
-            {nosotrosData?.equipo || "Nuestro equipo completo de más de 50 profesionales trabajando para ustedes"}
+            {nosotrosData?.equipo || ""}
           </p>
         </div>
       </div>
